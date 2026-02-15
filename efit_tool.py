@@ -1,8 +1,8 @@
 '''
 @author: peter.saiu@nhs.net
 Created: 2024
-version: 0.2.1
-Added on 31/3/2025
+version: 0.2.2
+Added on 15/2/2025
 
 Description:
 The code in this streamlit script allows you to run the allocation calculations based on the
@@ -15,7 +15,7 @@ Acknowledgements: Dan Chalk, Sammi Rosser, John Ford, Shylaja Thomas and Stefano
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-from  indicators_n_pop_data_25_26 import indicators_qox, indicators_qhg, indicators_qhl, \
+from  indicators_n_pop_data_25_26_v2 import indicators_qox, indicators_qhg, indicators_qhl, \
     indicators_qua, indicators_quy, indicators_qu9, indicators_que, indicators_qyg, indicators_qt6, \
     indicators_qwu, indicators_qj2, indicators_qjk, indicators_qvv, indicators_qnq, indicators_qr1, \
     indicators_qop, indicators_qrl, indicators_qgh, indicators_qm7, indicators_qoq, indicators_qks, \
@@ -23,14 +23,14 @@ from  indicators_n_pop_data_25_26 import indicators_qox, indicators_qhg, indicat
     indicators_qhm, indicators_qmf, indicators_qrv, indicators_qpm, indicators_qt1, indicators_qoc, \
     indicators_qsl, indicators_qkk, indicators_qwe, indicators_qf7, indicators_qnc, indicators_qjg, \
     indicators_qxu, indicators_qnx, indicators_qwo
-from indicators_n_pop_data_25_26 import m_pop_qox, m_pop_qhg, m_pop_qhl, m_pop_qua, m_pop_quy, \
+from indicators_n_pop_data_25_26_v2 import m_pop_qox, m_pop_qhg, m_pop_qhl, m_pop_qua, m_pop_quy, \
     m_pop_qu9, m_pop_que, m_pop_qyg, m_pop_qt6, m_pop_qwu, m_pop_qj2, m_pop_qjk, m_pop_qvv, \
     m_pop_qnq, m_pop_qr1, m_pop_qop, m_pop_qrl, m_pop_qgh, m_pop_qm7, m_pop_qoq, m_pop_qks, \
     m_pop_qe1, m_pop_qk1, m_pop_qjm, m_pop_qh8, m_pop_qmm, m_pop_qmj, m_pop_qhm, m_pop_qmf, \
     m_pop_qrv, m_pop_qpm, m_pop_qt1, m_pop_qoc, m_pop_qsl, m_pop_qkk, m_pop_qwe, m_pop_qf7, \
     m_pop_qnc, m_pop_qjg, m_pop_qxu, m_pop_qnx, m_pop_qwo
 
-from indicators_n_pop_data_25_26 import f_pop_qox, f_pop_qhg, f_pop_qhl, f_pop_qua, f_pop_quy, \
+from indicators_n_pop_data_25_26_v2 import f_pop_qox, f_pop_qhg, f_pop_qhl, f_pop_qua, f_pop_quy, \
     f_pop_qu9, f_pop_que, f_pop_qyg, f_pop_qt6, f_pop_qwu, f_pop_qj2, f_pop_qjk, f_pop_qvv, \
     f_pop_qnq, f_pop_qr1, f_pop_qop, f_pop_qrl, f_pop_qgh, f_pop_qm7, f_pop_qoq, f_pop_qks, \
     f_pop_qe1, f_pop_qk1, f_pop_qjm, f_pop_qh8, f_pop_qmm, f_pop_qmj, f_pop_qhm, f_pop_qmf, \
@@ -297,7 +297,7 @@ hidden_param['ones'] = col_of_ones
 # LISTED INDICATORS
 
 # List the available indicators.
-indicators_list = ['Choose an option', 'IMD score (2019)', 'Weighted population', 'Bowel cancer screening coverage (age 60-74)', 'Breast cancer screening coverage (age 53-70)',
+indicators_list = ['Choose an option', 'IMD score (2025)', 'Weighted population', 'Bowel cancer screening coverage (age 60-74)', 'Breast cancer screening coverage (age 53-70)',
                    'Cervical cancer screening coverage (age 25-49)', 'Cervical cancer screening coverage (age 50-64)',
                    'Cancer prevalence (all ages)', 'Hypertension prevalence (all ages)',
     'Last BP reading of patients (<80 yrs, with hypertension) <= 140/90 mmHg in the last 12 months',
@@ -349,7 +349,7 @@ wo_p_n_r_str_output_table_sorted_per_h = pd.DataFrame()
 #(left: name of indicator as you want it to appear in tool; right: name as it appears in imported data file i.e. excel)
 
 indicators_list_dict = {
-    'IMD score (2019)': selected_icb_for_ind_n_pop['Deprivation score (IMD 2019)'],
+    'IMD score (2025)': selected_icb_for_ind_n_pop['Deprivation score (IMD 2025)'],
     'Weighted population': selected_icb_for_ind_n_pop['Weighted population'],
     'Bowel cancer screening coverage (age 60-74)': selected_icb_for_ind_n_pop['Bowel cancer screening coverage: aged 60 to 74 years old'],
     'Breast cancer screening coverage (age 53-70)': selected_icb_for_ind_n_pop['Breast screening coverage: aged 53 to 70 years old'],
@@ -771,7 +771,7 @@ if st.button("**Calculate**", type="primary"):
                     round_pop = ['Weighted population']
                     str_output_table[round_pop] = str_output_table[round_pop].map(
                         lambda x: "{:,.0f}".format(x) if isinstance(x, (int, float)) else x)
-                elif ind_choice == 'IMD score (2019)':
+                elif ind_choice == 'IMD score (2025)':
                     str_output_table[f'{ind_choice}'] = selected_ind_w_correct_icb.apply(
                         lambda x: "{:,.1f}".format(x) if isinstance(x, (int, float)) else x)
                 else:
@@ -1695,7 +1695,7 @@ else:
                             str_extra_output_table[round_pop] = str_extra_output_table[round_pop].map(
                                 lambda x: "{:,.0f}".format(x) if isinstance(x, (int, float)) else x)
                             # Round to 1 decimal point
-                        elif ind_choice == 'IMD score (2019)':
+                        elif ind_choice == 'IMD score (2025)':
                             str_extra_output_table[ind_choice] = selected_ind_w_correct_icb.apply(
                                 lambda x: "{:,.1f}".format(x) if isinstance(x, (int, float)) else x)
                         else:
@@ -2778,3 +2778,4 @@ if button_ticked == True:
     st.warning('Health data can be inaccurate. Consider checking important information.')
 
 # End of Code
+
