@@ -15,14 +15,14 @@ Acknowledgements: Dan Chalk, Sammi Rosser, John Ford, Shylaja Thomas and Stefano
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-from  indicators_n_pop_data_26_27 import indicators_S1Y5D, indicators_D7T5G, indicators_T6Y0W, \
+from  indicators_n_pop_data_26_27_st import indicators_S1Y5D, indicators_D7T5G, indicators_T6Y0W, \
 indicators_Z9B2Z, indicators_S0E4D, indicators_qox, indicators_qhl, indicators_qua, indicators_quy, \
 indicators_qyg, indicators_qt6, indicators_qwu, indicators_qj2, indicators_qjk, indicators_qvv, \
 indicators_qr1, indicators_qop, indicators_qrl, indicators_qgh, indicators_qoq, indicators_qks, \
 indicators_qe1, indicators_qk1, indicators_qjm, indicators_qhm, indicators_qmf, indicators_qpm, \
 indicators_qt1, indicators_qoc, indicators_qsl, indicators_qkk, indicators_qwe, indicators_qf7, \
 indicators_qnc, indicators_qwo 
-from indicators_n_pop_data_26_27 import m_pop_S1Y5D, m_pop_D7T5G, m_pop_T6Y0W, \
+from indicators_n_pop_data_26_27_st import m_pop_S1Y5D, m_pop_D7T5G, m_pop_T6Y0W, \
 m_pop_Z9B2Z, m_pop_S0E4D, m_pop_qox, m_pop_qhl, m_pop_qua, m_pop_quy, \
 m_pop_qyg, m_pop_qt6, m_pop_qwu, m_pop_qj2, m_pop_qjk, m_pop_qvv, \
 m_pop_qr1, m_pop_qop, m_pop_qrl, m_pop_qgh, m_pop_qoq, m_pop_qks, \
@@ -30,7 +30,7 @@ m_pop_qe1, m_pop_qk1, m_pop_qjm, m_pop_qhm, m_pop_qmf, m_pop_qpm, \
 m_pop_qt1, m_pop_qoc, m_pop_qsl, m_pop_qkk, m_pop_qwe, m_pop_qf7, \
 m_pop_qnc, m_pop_qwo
 
-from indicators_n_pop_data_26_27 import f_pop_S1Y5D, f_pop_D7T5G, f_pop_T6Y0W, \
+from indicators_n_pop_data_26_27_st import f_pop_S1Y5D, f_pop_D7T5G, f_pop_T6Y0W, \
 f_pop_Z9B2Z, f_pop_S0E4D, f_pop_qox, f_pop_qhl, f_pop_qua, f_pop_quy, \
 f_pop_qyg, f_pop_qt6, f_pop_qwu, f_pop_qj2, f_pop_qjk, f_pop_qvv, \
 f_pop_qr1, f_pop_qop, f_pop_qrl, f_pop_qgh, f_pop_qoq, f_pop_qks, \
